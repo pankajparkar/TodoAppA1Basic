@@ -1,0 +1,18 @@
+﻿<div class="row well" style="border: 1px solid #e7e7e7;padding-bottom: 0;">
+	<form class="form-inline form-group">
+	  <div class="form-group">
+	    <i class="glyphicon glyphicon-plus-sign" ng-click="todoItem.addSubItem(todoItem.item)"></i>
+	    <i class="glyphicon glyphicon-floppy-saved" ng-click="todoItem.save({value: todoItem.item})"></i>
+	    <i class="glyphicon glyphicon-edit" ng-click="todoItem.edit({value: todoItem.item})"></i>
+	    <i class="glyphicon glyphicon-floppy-remove" ng-click="todoItem.remove({value: todoItem.item})"></i>
+	    <input type="text" class="form-control" ng-model="todoItem.item.Name" />
+			{{todoItem.addEnable}}
+	  </div>
+	</form>
+	<div class="col-sm-12" style="margin: 0 10px 0;">
+		<todo-list items="todoItem.item.subItems"
+			change-add-enabled="todoItem.changeAddEnabled(value)"
+			change-edit-enabled="todoItem.changeEditEnabled(value)">
+		</todo-list>
+	</div>
+</div>

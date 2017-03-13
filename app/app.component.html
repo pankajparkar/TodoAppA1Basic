@@ -1,0 +1,35 @@
+﻿<header>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
+					<span class="sr-only">Todo App</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Todo App</a>
+			</div>
+			<div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
+				<ul class="nav navbar-nav">
+					<li><a href="#">User</a></li>
+					<li><a href="#">Lists</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>
+<section>
+	<div class="container">
+		<todo-list 
+			add-enable="main.addEnable" 
+			items="main.list">
+		</todo-list>
+	</div>
+</section>
+<!--<footer class="container">
+	<div style="background-color: #f8f8f8;">
+		Here is simple Footer
+
+	</div>
+</footer>-->

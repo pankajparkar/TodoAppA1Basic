@@ -1,0 +1,35 @@
+﻿<div class="row well list-item" style="border: 1px solid #e7e7e7;padding-bottom: 0;" ng-class="{ 'active': todoItem.item.edit}">
+	<form class="form-inline form-group">
+		<fieldset ng-disabled="!todoItem.crud.addEnable && !todoItem.item.edit">
+			<span class="form-group">
+				<button ng-if="todoItem.crud.addEnable" 
+					title="Add sub item"
+					class="glyphicon glyphicon-plus-sign btn btn-sm" 
+					ng-click="todoItem.crud.addSubItem(todoItem.item)">
+				</button>
+				<button ng-if="todoItem.item.edit" 
+					title="Save"
+					class="glyphicon glyphicon-floppy-saved btn btn-sm" 
+					ng-click="todoItem.crud.save(todoItem.item)">
+				</button>
+				<button ng-if="todoItem.crud.addEnable" 
+					title="Edit"
+					class="glyphicon glyphicon-edit btn btn-sm" 
+					ng-click="todoItem.crud.edit(todoItem.item)">
+				</button>
+				<button ng-if="todoItem.item.edit" 
+					title="Delete"
+					class="glyphicon glyphicon-floppy-remove btn btn-sm" 
+					ng-click="todoItem.crud.remove($parent.$parent.todoList.items, todoItem.item)">
+				</button>
+			</span>
+			<input ng-disabled="!todoItem.item.edit" type="text" class="form-control" ng-model="todoItem.item.Name"/>
+		</fieldset>
+	</form>
+	<div class="col-sm-12" style="margin: 0 10px 0;">
+		<todo-list items="todoItem.item.subItems"
+			add-enable="todoItem.addEnable"
+			ng-if="todoItem.item.subItems.length">
+		</todo-list>
+	</div>
+</div>
